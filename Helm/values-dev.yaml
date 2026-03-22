@@ -64,7 +64,7 @@ security:
 # Istio VirtualService definitions
 istio:
   gateway:
-    createIfMissing: true
+    createIfMissing: false
     namespace: istio-system
     name: istio-ingressgateway
     selector:
@@ -74,12 +74,13 @@ istio:
   virtualService:
     enabled: true
     # If we want to  the name, RECOMMEND YOU DO NOT DO THIS UNLESS YOU NEED, it has a sane default
-    name: "iot-agent-alert-api"
+    name: "iot-agent-dashboard-api"
     annotations: {}
     hosts:
-      - iot-agent-alert-api-dev.iotag-dev.com
+      - iot-agent-dashboard-api-dev.iotag-dev.com
     # Gateways list, if empty chart auto-selects istio-system/istio-ingressgateway when present
-    gateways: []
+    gateways:
+      - istio-system/istio-ingressgateway
     # Optional full HTTP spec override. If empty, chart creates a default route
     http:
       - match:
@@ -87,7 +88,7 @@ istio:
               prefix: /
         route:
           - destination:
-              host: iot-agent-alert-api-dev.iotag-dev.svc.cluster.local
+              host: iot-agent-dashboard-api.iotag-dev.svc.cluster.local
               port:
                 number: 80
     # http: []
@@ -117,7 +118,7 @@ ingress:
   pathType: ImplementationSpecific # or Prefix
   annotations: {}
   hosts:
-    - host: iot-agent-alert-api-dev.iotag-dev
+    - host: iot-agent-dashboard-api-dev.iotag-dev
       paths:
         - /
   tls: []
