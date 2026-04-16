@@ -188,7 +188,15 @@ globalEnvs: []
 globalEnvsSecondary: []
 
 # A tertiary source for env variables (eg: used for a specific env (eg: dev, or staging))
-extraEnvs: []
+extraEnvs:
+  - name: DEVICE_API_BASE_URL
+    value: "http://iot-agent-device-api.iotag-dev.svc.cluster.local:80"
+  - name: STREAM_WORKER_BASE_URL
+    value: "http://iot-agent-stream-worker.iotag-dev.svc.cluster.local:80"
+  - name: ALERT_API_BASE_URL
+    value: "http://iot-agent-alert-api.iotag-dev.svc.cluster.local:80"
+  - name: JWT_SECRET
+    value: "supersecretkey"
 
 # stdin and tty status
 tty: false
