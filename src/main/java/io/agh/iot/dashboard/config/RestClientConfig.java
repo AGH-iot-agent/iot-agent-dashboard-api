@@ -3,7 +3,6 @@ package io.agh.iot.dashboard.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestClient;
-import org.springframework.http.client.ClientHttpRequestInterceptor;
 
 @Configuration
 public class RestClientConfig {
