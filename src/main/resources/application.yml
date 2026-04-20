@@ -9,8 +9,12 @@ dashboard:
   device-api-base-url: ${DEVICE_API_BASE_URL:http://iot-agent-device-api:8080}
   stream-worker-base-url: ${STREAM_WORKER_BASE_URL:http://iot-agent-stream-worker:8080}
   alert-api-base-url: ${ALERT_API_BASE_URL:http://iot-agent-alert-api:8080}
-  jwt:
-    secret: ${JWT_SECRET:supersecretkey}
+  spring:
+    security:
+      oauth2:
+        resourceserver:
+          jwt:
+            secret: ${JWT_SECRET:supersecretkey}
 
 management:
   endpoints:
