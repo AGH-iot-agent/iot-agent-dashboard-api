@@ -13,12 +13,10 @@ public class RestClientConfig {
         this.jwtForwardingInterceptor = jwtForwardingInterceptor;
     }
 
-
     @Bean
     RestClient deviceApiClient(RestClient.Builder builder, DownstreamProperties properties) {
         return builder.baseUrl(properties.getDeviceApiBaseUrl()).build();
     }
-
 
     @Bean
     RestClient streamWorkerClient(RestClient.Builder builder, DownstreamProperties properties) {
