@@ -9,7 +9,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://keycloak:8080/realms/master
+          issuer-uri: http://iot-agent-auth-dev.iotag-dev.com/realms/master
 
 dashboard:
   device-api-base-url: ${DEVICE_API_BASE_URL:http://iot-agent-device-api:8080}
