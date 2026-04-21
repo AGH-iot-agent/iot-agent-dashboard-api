@@ -1,29 +1,13 @@
 server:
   port: 8080
-
 spring:
   application:
     name: iot-agent-dashboard-api
 
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          jwk-set-uri: http://iot-agent-authentication:8080/.well-known/jwks.json
+jwt:
+  secret: ${JWT_SECRET:your-secret-here} 
 
 dashboard:
   device-api-base-url: ${DEVICE_API_BASE_URL:http://iot-agent-device-api:8080}
   stream-worker-base-url: ${STREAM_WORKER_BASE_URL:http://iot-agent-stream-worker:8080}
   alert-api-base-url: ${ALERT_API_BASE_URL:http://iot-agent-alert-api:8080}
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health,info,metrics,prometheus
-
-  endpoint:
-    health:
-      probes:
-        enabled: true
-      show-details: always
