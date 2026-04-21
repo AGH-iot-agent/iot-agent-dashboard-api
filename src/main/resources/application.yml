@@ -7,6 +7,7 @@ spring:
 jwt:
   secret: ${JWT_SECRET:your-secret-here} 
 
+
 dashboard:
   device-api-base-url: ${DEVICE_API_BASE_URL:http://iot-agent-device-api:8080}
   stream-worker-base-url: ${STREAM_WORKER_BASE_URL:http://iot-agent-stream-worker:8080}
