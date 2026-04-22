@@ -43,7 +43,7 @@ public class TelemetryController {
         }
     }
 
-    @GetMapping("/api/alerts")
+    @GetMapping("/api/telemetry/alerts")
     public List<JsonNode> alerts() {
         try {
             JsonNode[] payload = alertApiClient.get().uri("/alerts/recent").retrieve().body(JsonNode[].class);
