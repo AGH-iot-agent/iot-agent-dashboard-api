@@ -27,10 +27,10 @@ public class SummaryController {
         this.alertApiClient = alertApiClient;
     }
 
-        @GetMapping("/api/ping")
-        public String ping() {
-            return "pong";
-        }
+    @GetMapping("/api/ping")
+    public String ping() {
+        return "pong";
+    }
 
     @GetMapping("/api/summary")
     public Summary getSummary() {
