@@ -23,7 +23,7 @@ public class TelemetryController {
         this.alertApiClient = alertApiClient;
     }
 
-    @GetMapping("/api/telemetry/latest")
+    @GetMapping("/telemetry/latest")
     public List<JsonNode> latest() {
         try {
             JsonNode[] payload = streamWorkerClient.get().uri("/analytics/latest").retrieve().body(JsonNode[].class);
@@ -33,7 +33,7 @@ public class TelemetryController {
         }
     }
 
-    @GetMapping("/api/telemetry/series/{deviceId}")
+    @GetMapping("/telemetry/series/{deviceId}")
     public List<JsonNode> series(@PathVariable String deviceId) {
         try {
             JsonNode[] payload = streamWorkerClient.get().uri("/analytics/series/{id}", deviceId).retrieve().body(JsonNode[].class);
@@ -43,7 +43,7 @@ public class TelemetryController {
         }
     }
 
-    @GetMapping("/api/telemetry/alerts")
+    @GetMapping("/telemetry/alerts")
     public List<JsonNode> alerts() {
         try {
             JsonNode[] payload = alertApiClient.get().uri("/alerts/recent").retrieve().body(JsonNode[].class);

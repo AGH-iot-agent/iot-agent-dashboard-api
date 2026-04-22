@@ -32,7 +32,7 @@ public class SummaryController {
         return "pong";
     }
 
-    @GetMapping("/api/summary")
+    @GetMapping("/summary")
     public Summary getSummary() {
         int devicesOnline = countOnlineDevices();
         int activeAlerts = countActiveAlerts();
